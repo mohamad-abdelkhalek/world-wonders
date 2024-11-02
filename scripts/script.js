@@ -1,7 +1,4 @@
-// const instance = axios.create({
-//     baseURL: "https://www.world-wonders-api.org/v0",
-//   });
-  
+
 const wondersList = document.getElementById("wonders-list");
 
 const fetchWonders = async () => {
@@ -36,6 +33,7 @@ const fetchWonders = async () => {
       card.appendChild(content);
       wondersList.appendChild(card);
     });
+
     // Store wonders data in localStorage
     localStorage.setItem("wondersData", JSON.stringify(wonders));
   } catch (error) {
