@@ -23,7 +23,7 @@ const fetchWonders = async () => {
       title.textContent = wonder.name;
       content.appendChild(title);
 
-      // Use index as unique identifier in the URL
+      // Use index as unique id in the URL
       const link = document.createElement("a");
       link.href = `wonder.html?index=${index}`;
       link.className = "card-link";
