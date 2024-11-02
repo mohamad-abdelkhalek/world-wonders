@@ -10,7 +10,7 @@
   }
 
   .main-title {
-    color: white;
+    color: black;
     text-align: center;
     margin: 35px;
   }
@@ -19,7 +19,7 @@
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 20px;
     justify-content: center;
     padding: 20px;
   }
