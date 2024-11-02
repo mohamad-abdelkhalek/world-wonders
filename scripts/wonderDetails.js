@@ -6,7 +6,7 @@
   const fetchWonderDetails = () => {
     const params = new URLSearchParams(window.location.search);
     const wonderIndex = params.get("index");
-    
+  
     // Retrieve wonders data from localStorage
     const wondersData = JSON.parse(localStorage.getItem("wondersData"));
     
@@ -14,7 +14,7 @@
       document.getElementById("wonder-details").textContent = "Wonder details not found.";
       return;
     }
-    
+  
     // Get the specific wonder based on the index
     const wonder = wondersData[wonderIndex];
     
@@ -23,27 +23,28 @@
       return;
     }
   
-    // Display wonder details
-    const detailsDiv = document.getElementById("wonder-details");
-    detailsDiv.innerHTML = `
-      <h2>${wonder.name}</h2>
-      <p><strong>Location:</strong> ${wonder.location}</p>
-      <p><strong>Build Year:</strong> ${wonder.build_year}</p>
-      <p><strong>Time Period:</strong> ${wonder.time_period}</p>
-      <p><strong>Summary:</strong> ${wonder.summary}</p>
-      <div class="image-gallery">
-        ${wonder.links.images.map(img => `<img src="${img}" alt="${wonder.name}" />`).join('')}
-      </div>
-      <h3>Additional Links</h3>
-      <ul>
-        <li><a href="${wonder.links.wiki}" target="_blank">Wikipedia</a></li>
-        <li><a href="${wonder.links.britannica}" target="_blank">Britannica</a></li>
-        <li><a href="${wonder.links.google_maps}" target="_blank">Google Maps</a></li>
-        <li><a href="${wonder.links.trip_advisor}" target="_blank">Trip Advisor</a></li>
-      </ul>
-    `;
+    // Populate HTML with wonder details
+    document.getElementById("wonder-name").textContent = wonder.name;
+    document.getElementById("wonder-location").textContent = wonder.location;
+    document.getElementById("wonder-build-year").textContent = wonder.build_year;
+    document.getElementById("wonder-time-period").textContent = wonder.time_period;
+    document.getElementById("wonder-summary").textContent = wonder.summary;
+  
+    // Populate image gallery
+    const imageGallery = document.getElementById("image-gallery");
+    wonder.links.images.forEach(imgUrl => {
+      const img = document.createElement("img");
+      img.src = imgUrl;
+      img.alt = wonder.name;
+      imageGallery.appendChild(img);
+    });
+  
+    // Populate additional links
+    document.getElementById("wiki-link").href = wonder.links.wiki;
+    document.getElementById("britannica-link").href = wonder.links.britannica;
+    document.getElementById("google-maps-link").href = wonder.links.google_maps;
+    document.getElementById("trip-advisor-link").href = wonder.links.trip_advisor;
   };
   
   fetchWonderDetails();
-  
   
