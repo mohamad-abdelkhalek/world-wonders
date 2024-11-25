@@ -1,4 +1,4 @@
-# World Wonders Website
+# World Wonders
 
 This project displays a list of the world's wonders using an API to fetch data. The website allows users to view all wonders in a list format, with each wonder linking to a details page. The project is built with HTML, CSS, JavaScript, and utilizes an API to fetch the data.
 
